@@ -1,0 +1,148 @@
+# Panel /admin (Sveltia CMS). Cada guardado crea un commit en GitHub y Vercel publica en ~30 segundos.
+# Las reservas de clientas se ven y se agendan en /agenda (no aquí).
+
+backend:
+  name: github
+  repo: Bemol69/lunariaestudio.cl
+  branch: main
+  commit_messages:
+    create: "Web: crea {{collection}} «{{slug}}»"
+    update: "Web: actualiza {{collection}} «{{slug}}»"
+    delete: "Web: elimina {{collection}} «{{slug}}»"
+    uploadMedia: "Web: sube foto {{path}}"
+    deleteMedia: "Web: elimina foto {{path}}"
+
+site_url: https://lunariaestudio.vercel.app
+display_url: https://lunariaestudio.vercel.app
+logo_url: ../favicon.svg
+
+media_folder: img/servicios
+public_folder: servicios
+
+slug:
+  encoding: ascii
+  clean_accents: true
+  sanitize_replacement: "-"
+
+media_libraries:
+  default:
+    config:
+      transformations:
+        raster_image:
+          format: webp
+          quality: 85
+          width: 1200
+          height: 1200
+
+collections:
+  - name: servicios
+    label: Servicios y precios
+    label_singular: servicio
+    description: "Las tarjetas de la carta. Cada servicio es también una opción en la agenda online. Máximo 10 visibles."
+    icon: spa
+    folder: data/servicios
+    format: json
+    create: true
+    delete: true
+    identifier_field: nombre
+    slug: "{{nombre}}"
+    summary: "{{nombre}} · {{categoria}}"
+    sortable_fields:
+      fields: [orden, nombre]
+      default: { field: orden, direction: ascending }
+    fields:
+      - { name: id, label: Código interno, widget: string, hint: "Sin espacios ni tildes. Ej: francesa-polygel. No lo cambies después de crear el servicio.", pattern: ["^[a-z0-9-]+$", "Solo minúsculas, números y guiones"] }
+      - { name: nombre, label: Nombre del servicio, widget: string, hint: "Ej: Esmaltado permanente · Lisas" }
+      - { name: categoria, label: Categoría, widget: string, hint: "Agrupa los filtros. Ej: Esmaltado permanente, Extensión polygel, Cosmetología" }
+      - { name: precio, label: Precio (CLP), widget: number, value_type: int, min: 0, required: false, hint: "Solo el número, sin puntos. Ej: 18500. Si lo dejas vacío dirá «Cotizar por WhatsApp»." }
+      - name: precio_prefijo
+        label: Texto antes del precio
+        widget: select
+        required: false
+        default: ""
+        options: [{ label: "Ninguno", value: "" }, { label: "desde", value: desde }, { label: "+ (se suma a otro servicio)", value: "+" }]
+      - { name: descripcion, label: Descripción, widget: text, hint: "Una o dos frases. Ej: Tu esmaltado con 1 a 4 uñas diseñadas." }
+      - { name: duracion_min, label: Duración (minutos), widget: number, value_type: int, min: 15, default: 60, hint: "Cuánto dura la cita. Bloquea ese tiempo en la agenda. Ej: 60 o 120." }
+      - { name: portada, label: Foto principal, widget: image, required: false, hint: "Foto vertical, desde el celular. Si no hay foto se muestra una luna." }
+      - { name: fotos, label: Fotos extra, widget: list, required: false, field: { name: foto, label: Foto, widget: image }, hint: "Se ven al abrir la ficha del servicio." }
+      - { name: etiqueta, label: Etiqueta, widget: string, required: false, hint: "Ej: Más pedido. Déjala vacía si no aplica." }
+      - { name: destacado, label: Destacado, widget: boolean, default: false }
+      - { name: orden, label: Orden, widget: number, value_type: int, default: 50, hint: "Número chico = aparece primero." }
+      - { name: visible, label: Visible en la web, widget: boolean, default: true }
+      - { name: origen, label: Notas internas, widget: string, required: false }
+
+  - name: ajustes
+    label: Ajustes del estudio
+    icon: settings
+    files:
+      - name: ajustes
+        label: Contacto, horario y reservas
+        file: data/ajustes.json
+        format: json
+        fields:
+          - name: contacto
+            label: Contacto
+            widget: object
+            fields:
+              - { name: whatsapp, label: WhatsApp, widget: string, hint: "Con 56 y sin signos. Ej: 56912345678", pattern: ["^569\\d{8}$", "Formato 569XXXXXXXX (11 números)"] }
+              - { name: mensaje_defecto, label: Mensaje de WhatsApp por defecto, widget: string, hint: "Ej: Hola Naayú! Quiero agendar una hora en Lunaria 🌙" }
+              - { name: instagram, label: Instagram (sin @), widget: string, hint: "Ej: lunariaestudio.cl" }
+              - { name: correo, label: Correo, widget: string, required: false, hint: "Déjalo vacío si no usas correo." }
+          - name: ubicacion
+            label: Dónde estamos
+            widget: object
+            fields:
+              - { name: direccion, label: Dirección para el mapa, widget: string, required: false, hint: "Ej: Av. José Pedro Alessandri 1234, Ñuñoa. Si la dejas vacía, el mapa desaparece." }
+              - { name: referencia, label: Referencia, widget: string, hint: "Ej: A 8 minutos caminando del Metro Villa Frei (Línea 3)" }
+              - { name: comuna, label: Comuna, widget: string }
+              - { name: ciudad, label: Ciudad, widget: string }
+              - { name: region, label: Región, widget: string }
+          - name: portada
+            label: Portada
+            widget: object
+            fields:
+              - { name: titulo, label: Título grande, widget: string, hint: "Ej: Tu momento de regaloneo" }
+              - { name: bajada, label: Texto bajo el título, widget: text }
+              - { name: lema, label: Lema corto, widget: string, hint: "Ej: Uñas · Cosmetología" }
+          - name: reservas
+            label: Reservas online
+            widget: object
+            fields:
+              - { name: activas, label: Reservas activas, widget: boolean, default: true, hint: "Apágalo para pausar la agenda online (vacaciones)." }
+              - { name: duracion_bloque_min, label: Tamaño de cada bloque (minutos), widget: number, value_type: int, min: 15, default: 60, hint: "Las horas se ofrecen cada tantos minutos. Ej: 60" }
+              - { name: anticipacion_horas, label: Anticipación mínima (horas), widget: number, value_type: int, min: 0, default: 2, hint: "No se puede reservar con menos horas de aviso." }
+              - { name: dias_adelante, label: Cuántos días hacia adelante, widget: number, value_type: int, min: 7, max: 90, default: 30 }
+          - name: horario
+            label: Horario de atención
+            widget: list
+            min: 7
+            max: 7
+            summary: "{{dia}}: {{abre}} – {{cierra}}"
+            hint: "Un renglón por día. No agregues ni borres días: edita cada uno. Los cambios de horario cambian las horas que se ofrecen en la agenda."
+            fields:
+              - { name: dia, label: Día, widget: string, hint: "No lo cambies." }
+              - { name: cerrado, label: Cerrado todo el día, widget: boolean, default: false }
+              - { name: abre, label: Abre, widget: string, hint: "Formato HH:MM. Ej: 10:00", pattern: ["^([01]\\d|2[0-3]):[0-5]\\d$", "Usa HH:MM, ej: 09:30"] }
+              - { name: cierra, label: Cierra, widget: string, hint: "Formato HH:MM. Ej: 19:00", pattern: ["^([01]\\d|2[0-3]):[0-5]\\d$", "Usa HH:MM, ej: 19:00"] }
+              - { name: pausa_desde, label: Pausa desde (opcional), widget: string, required: false, hint: "Ej: 14:00 si cierras a almorzar" }
+              - { name: pausa_hasta, label: Pausa hasta (opcional), widget: string, required: false, hint: "Ej: 15:00" }
+          - { name: pagos, label: Medios de pago, widget: list, field: { name: medio, label: Medio, widget: string }, hint: "Ej: Transferencia, Débito, Crédito, Efectivo" }
+
+  - name: opiniones
+    label: Opiniones de clientas
+    icon: reviews
+    files:
+      - name: testimonios
+        label: Testimonios
+        file: data/testimonios.json
+        format: json
+        fields:
+          - name: items
+            label: Opiniones
+            widget: list
+            required: false
+            summary: "{{nombre}}"
+            hint: "Mientras no haya ninguna, la sección no aparece. Solo opiniones reales."
+            fields:
+              - { name: nombre, label: Nombre, widget: string, hint: "Ej: Camila R." }
+              - { name: texto, label: Opinión, widget: text }

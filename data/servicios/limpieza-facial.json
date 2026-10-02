@@ -1,0 +1,16 @@
+{
+  "id": "limpieza-facial",
+  "nombre": "Limpieza facial",
+  "categoria": "Cosmetología",
+  "precio": null,
+  "descripcion": "Limpieza facial profunda con cosmetología. Valor a consultar según tu tipo de piel.",
+  "portada": "",
+  "fotos": [],
+  "etiqueta": "Cosmetología",
+  "origen": "Bio y post DZqo43YTv73 (sin precio publicado)",
+  "duracion_min": 60,
+  "orden": 10,
+  "visible": true,
+  "destacado": false,
+  "precio_prefijo": ""
+}

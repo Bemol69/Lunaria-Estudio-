@@ -1,0 +1,261 @@
+<!doctype html>
+<html lang="es-CL">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>%%TITULO_SEO%%</title>
+<meta name="description" content="%%DESC_SEO%%">
+<meta name="theme-color" content="%%TEMA%%">
+<link rel="canonical" href="%%CANONICAL%%">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="es_CL">
+<meta property="og:site_name" content="%%NOMBRE%%">
+<meta property="og:title" content="%%TITULO_SEO%%">
+<meta property="og:description" content="%%DESC_SEO%%">
+<meta property="og:url" content="%%CANONICAL%%">
+<meta property="og:image" content="%%OG_IMG%%">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="%%CSS%%">
+<script>document.documentElement.classList.add('js')</script>
+<script type="application/ld+json">%%JSONLD%%</script>
+</head>
+<body>
+
+<header class="nav" id="top">
+  <a class="brand" href="#top" aria-label="%%NOMBRE%%, inicio">
+    <svg class="brand__moon" viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="14" fill="none" stroke="currentColor" stroke-width="1.2"/><path d="M22 4.5A12 12 0 1 0 22 27.5 14 14 0 0 1 22 4.5Z" fill="currentColor"/></svg>
+    <span class="brand__txt">Lunaria<small>Estudio</small></span>
+  </a>
+  <nav class="nav__links" aria-label="Principal">
+    <a href="#servicios">Servicios</a>
+    <a href="#reservar">Reservar</a>
+    <a href="#estudio">El estudio</a>
+    <a href="#contacto">Contacto</a>
+  </nav>
+  <div class="nav__right">
+    <!-- SI:HORARIO --><span class="estado" data-estado hidden><i></i><b></b></span><!-- /SI:HORARIO -->
+    <a class="btn btn--sm" href="#reservar">Reservar hora</a>
+  </div>
+</header>
+
+<main>
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="hero__txt">
+    <p class="eyebrow">%%LEMA%% · %%COMUNA%%</p>
+    <h1 class="hero__title">%%TITULO_PORTADA_HTML%%</h1>
+    <p class="hero__lead">%%BAJADA%%</p>
+    <div class="hero__cta">
+      <a class="btn" href="#reservar">Reservar mi hora</a>
+      <a class="btn btn--ghost" href="#servicios">Ver servicios y precios</a>
+    </div>
+    <ul class="hero__facts">
+      <li><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 18s6-5.2 6-9.5A6 6 0 0 0 4 8.5C4 12.800 10 18 10 18Z" fill="none" stroke="currentColor" stroke-width="1.3"/><circle cx="10" cy="8.5" r="2" fill="none" stroke="currentColor" stroke-width="1.3"/></svg>%%REFERENCIA%%</li>
+      <li><svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="7.5" fill="none" stroke="currentColor" stroke-width="1.3"/><path d="M10 5.5V10l3 2" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>Atención una a una, sin apuros</li>
+    </ul>
+  </div>
+  <div class="hero__art" aria-hidden="false">
+    <div class="moon" data-parallax>
+      <img src="%%HERO_IMG%%" alt="%%HERO_ALT%%" width="900" height="990" fetchpriority="high">
+      <i class="moon__shade"></i>
+      <span class="moon__glint"></span>
+    </div>
+    <svg class="ring" viewBox="0 0 400 400" aria-hidden="true">
+      <defs><path id="circ" d="M200 200m-178 0a178 178 0 1 1 356 0a178 178 0 1 1-356 0"/></defs>
+      <text><textPath href="#circ" startOffset="0">LUNARIA ESTUDIO ✦ ESMALTADO PERMANENTE ✦ POLYGEL ✦ COSMETOLOGÍA ✦ ÑUÑOA ✦ </textPath></text>
+    </svg>
+    <span class="star s1">✦</span><span class="star s2">✦</span><span class="star s3">✦</span>
+  </div>
+</section>
+
+<div class="marquee" aria-hidden="true">
+  <div class="marquee__row">%%MARQUEE%%%%MARQUEE%%</div>
+</div>
+
+<!-- ============ SERVICIOS ============ -->
+<section class="sec" id="servicios">
+  <header class="sec__head reveal">
+    <p class="eyebrow">La carta</p>
+    <h2>Servicios y <em>precios</em></h2>
+    <p class="sec__lead">Valores de la lista oficial del estudio. Los diseños complejos o a mano alzada pueden tener un valor adicional.</p>
+  </header>
+  <div class="filtros reveal" role="tablist" aria-label="Filtrar servicios">%%FILTROS%%</div>
+  <div class="grid">%%TARJETAS%%</div>
+  <p class="nota reveal">✦ Efectos <b>Perlado · Aurora · Ojo de gato</b> por +$2.000, se suman al servicio elegido. Retiro de esmaltado Lunaria <b>gratis</b>.</p>
+</section>
+
+<!-- ============ RESERVA ============ -->
+<section class="sec sec--noche" id="reservar">
+  <div class="reserva">
+    <header class="reserva__head reveal">
+      <p class="eyebrow">Agenda online</p>
+      <h2>Elige tu <em>luna</em></h2>
+      <p class="sec__lead">Cada día es una luna: mientras más llena, más horas libres. Elige servicio, día y hora, y tu cita queda confirmada al instante.</p>
+      <ol class="pasos">
+        <li class="on" data-paso-n="1"><span>1</span>Servicio</li>
+        <li data-paso-n="2"><span>2</span>Día</li>
+        <li data-paso-n="3"><span>3</span>Hora</li>
+        <li data-paso-n="4"><span>4</span>Tus datos</li>
+      </ol>
+    </header>
+
+    <div class="reserva__box reveal" id="rsv">
+      <div class="rsv__fallo" id="rsvFallo" hidden>
+        <p>Por ahora no podemos mostrar las horas en línea.</p>
+        <!-- SI:WHATSAPP --><a class="btn" href="%%WA_LINK%%" target="_blank" rel="noopener">Agendar por WhatsApp</a><!-- /SI:WHATSAPP -->
+      </div>
+
+      <div class="rsv__paso" data-paso="1">
+        <label class="lbl" for="rsvServicio">¿Qué te quieres hacer?</label>
+        <div class="selwrap"><select id="rsvServicio">%%SELECT_SERVICIOS%%</select></div>
+        <p class="rsv__sub" id="rsvDur"></p>
+      </div>
+
+      <div class="rsv__paso" data-paso="2">
+        <div class="cal__head">
+          <span class="lbl">Elige un día</span>
+          <span class="leyenda"><i class="d d--lleno"></i>muchas horas <i class="d d--medio"></i>pocas <i class="d d--vacio"></i>agotado</span>
+        </div>
+        <div class="cal" id="cal" aria-live="polite"><p class="cal__cargando">Cargando agenda…</p></div>
+      </div>
+
+      <div class="rsv__paso" data-paso="3" id="pasoHora" hidden>
+        <span class="lbl" id="horaTitulo">Horas disponibles</span>
+        <div class="horas" id="horas" role="group" aria-label="Horas disponibles"></div>
+      </div>
+
+      <form class="rsv__paso" data-paso="4" id="rsvForm" novalidate hidden>
+        <div class="resumen" id="resumen"></div>
+        <div class="campos">
+          <label>Tu nombre<input name="nombre" autocomplete="name" required maxlength="60" placeholder="Ej: Camila Rojas"></label>
+          <label>Tu celular<input name="telefono" inputmode="tel" autocomplete="tel" required maxlength="16" placeholder="9 1234 5678"></label>
+        </div>
+        <label>Algo que debamos saber <small>(opcional)</small><textarea name="nota" rows="2" maxlength="300" placeholder="Ej: quiero francesa con ojo de gato, o traigo diseño de Pinterest"></textarea></label>
+        <input class="hp" type="text" name="web" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <p class="err" id="rsvErr" role="alert" hidden></p>
+        <button class="btn btn--lg" type="submit" id="rsvBtn">Confirmar mi hora</button>
+      </form>
+
+      <div class="rsv__ok" id="rsvOk" hidden>
+        <svg class="check" viewBox="0 0 52 52" aria-hidden="true"><circle cx="26" cy="26" r="24" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M15 27l8 8 14-16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <h3>¡Tu hora quedó agendada!</h3>
+        <p id="okTxt"></p>
+        <!-- SI:WHATSAPP --><a class="btn" id="okWa" href="%%WA_LINK%%" target="_blank" rel="noopener">Avisar por WhatsApp</a><!-- /SI:WHATSAPP -->
+        <button class="btn btn--ghost" type="button" id="okOtra">Agendar otra hora</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ESTUDIO ============ -->
+<section class="sec" id="estudio">
+  <header class="sec__head reveal">
+    <p class="eyebrow">El estudio</p>
+    <h2>Tu cita en <em>tres fases</em></h2>
+    <p class="sec__lead">Un espacio pensado para que te sientas cómoda, te relajes y salgas sintiéndote aún más linda.</p>
+  </header>
+  <ol class="fases">
+    <li class="reveal"><span class="fase fase--1" aria-hidden="true"></span><h3>Luna nueva</h3><p>Reservas tu hora en línea, eliges servicio y diseño. Si tienes inspiración, tráela.</p></li>
+    <li class="reveal"><span class="fase fase--2" aria-hidden="true"></span><h3>Cuarto creciente</h3><p>Te atiendo una a una, con el tiempo, el detalle y la dedicación que cada clienta merece.</p></li>
+    <li class="reveal"><span class="fase fase--3" aria-hidden="true"></span><h3>Luna llena</h3><p>Sales con las uñas que soñaste. Y con tarjeta de fidelización para premiar tu preferencia.</p></li>
+  </ol>
+
+  <div class="datos">
+    <!-- SI:HORARIO -->
+    <div class="card-info reveal">
+      <h3>Horario</h3>
+      <p class="estado estado--big" data-estado hidden><i></i><b></b></p>
+      <table class="horario"><tbody>%%HORARIO_TABLA%%</tbody></table>
+    </div>
+    <!-- /SI:HORARIO -->
+    <div class="card-info reveal">
+      <h3>Cómo pagar</h3>
+      <ul class="pagos">%%PAGOS%%</ul>
+      <h3 class="h3b">Dónde estamos</h3>
+      <p>%%REFERENCIA%%.</p>
+      <p class="muted">%%DIRECCION%%</p>
+    </div>
+  </div>
+</section>
+
+<!-- SI:TESTIMONIOS -->
+<section class="sec sec--arena" id="opiniones">
+  <header class="sec__head reveal"><p class="eyebrow">Clientas</p><h2>Lo que <em>dicen</em></h2></header>
+  <div class="testis">%%TESTIMONIOS%%</div>
+</section>
+<!-- /SI:TESTIMONIOS -->
+
+<!-- ============ CONTACTO ============ -->
+<section class="sec sec--arena" id="contacto">
+  <div class="contacto">
+    <header class="reveal">
+      <p class="eyebrow">Contacto</p>
+      <h2>¿Dudas? <em>Escríbeme</em></h2>
+      <p class="sec__lead">Cotizaciones, diseños especiales o limpiezas faciales: cuéntame y te respondo por WhatsApp.</p>
+      <ul class="redes">
+        <!-- SI:WHATSAPP --><li><a href="%%WA_LINK%%" target="_blank" rel="noopener">WhatsApp</a></li><!-- /SI:WHATSAPP -->
+        <li><a href="%%IG_URL%%" target="_blank" rel="noopener">Instagram @%%INSTAGRAM%%</a></li>
+        <!-- SI:CORREO --><li><a href="mailto:%%CORREO%%">%%CORREO%%</a></li><!-- /SI:CORREO -->
+      </ul>
+    </header>
+    <!-- SI:WHATSAPP -->
+    <form class="wa reveal" id="waForm" novalidate>
+      <div class="campos">
+        <label>Tu nombre<input name="nombre" autocomplete="name" required maxlength="60"></label>
+        <label>Me interesa<div class="selwrap"><select name="interes">%%SELECT_SERVICIOS_WA%%</select></div></label>
+      </div>
+      <label>Cuéntame<textarea name="detalle" rows="3" maxlength="400" placeholder="Ej: quiero polygel con francesa y ojo de gato"></textarea></label>
+      <p class="err" id="waErr" role="alert" hidden></p>
+      <pre class="vista" id="waVista" hidden></pre>
+      <button class="btn btn--lg" type="submit">Enviar por WhatsApp</button>
+    </form>
+    <!-- /SI:WHATSAPP -->
+  </div>
+</section>
+
+<!-- SI:MAPA -->
+<section class="mapa" id="mapa" aria-label="Mapa">
+  <div class="mapa__box" data-mapa="%%MAPA_SRC%%" title="Mapa de %%NOMBRE%%">
+    <button class="btn" type="button" data-mapa-btn>Ver mapa</button>
+  </div>
+  <a class="btn btn--ghost mapa__ir" href="%%COMO_LLEGAR%%" target="_blank" rel="noopener">Cómo llegar</a>
+</section>
+<!-- /SI:MAPA -->
+</main>
+
+<footer class="foot">
+  <p class="foot__brand">Lunaria <em>Estudio</em></p>
+  <p>© %%ANIO%% %%NOMBRE%% · %%COMUNA%%, Chile</p>
+  <p class="foot__rc">Sitio por <a href="https://runclickwebs.cl" target="_blank" rel="noopener">RunClick Webs</a></p>
+</footer>
+
+<!-- SI:WHATSAPP -->
+<a class="wa-fab" href="%%WA_LINK%%" target="_blank" rel="noopener" aria-label="Escribir por WhatsApp">
+  <svg viewBox="0 0 32 32" aria-hidden="true"><path fill="currentColor" d="M16 3a13 13 0 0 0-11 19.8L3 29l6.400-2A13 13 0 1 0 16 3Zm0 2.400a10.600 10.600 0 1 1-5.400 19.700l-.4-.2-3.800 1.200 1.200-3.700-.3-.4A10.600 10.600 0 0 1 16 5.400Zm-3.600 5.300c-.3 0-.7.100-1 .5-.4.400-1.300 1.300-1.300 3.100s1.300 3.600 1.500 3.800c.2.300 2.600 4.100 6.400 5.600 3.100 1.200 3.800 1 4.500.9.700-.1 2.200-.9 2.500-1.800.3-.9.300-1.600.2-1.800-.1-.2-.4-.3-.8-.5l-2.700-1.300c-.4-.1-.6-.2-.9.200-.3.400-1 1.300-1.200 1.500-.2.300-.4.300-.8.100-.4-.2-1.600-.6-3.100-1.900-1.100-1-1.900-2.300-2.100-2.700-.2-.4 0-.6.200-.8l.6-.7c.2-.2.200-.4.400-.6.100-.3.100-.5 0-.7l-1.200-3c-.3-.7-.6-.7-.9-.7Z"/></svg>
+</a>
+<!-- /SI:WHATSAPP -->
+
+<!-- Ficha de servicio -->
+<dialog class="ficha" id="ficha" aria-labelledby="fichaTitulo">
+  <button class="ficha__x" type="button" data-cerrar aria-label="Cerrar">×</button>
+  <div class="ficha__fotos" id="fichaFotos"></div>
+  <div class="ficha__txt">
+    <p class="eyebrow" id="fichaCat"></p>
+    <h3 id="fichaTitulo"></h3>
+    <p class="ficha__precio" id="fichaPrecio"></p>
+    <p id="fichaDesc"></p>
+    <div class="ficha__cta">
+      <button class="btn" type="button" id="fichaReservar">Reservar este servicio</button>
+      <!-- SI:WHATSAPP --><a class="btn btn--ghost" id="fichaWa" href="%%WA_LINK%%" target="_blank" rel="noopener">Consultar por WhatsApp</a><!-- /SI:WHATSAPP -->
+    </div>
+  </div>
+</dialog>
+
+<script id="datos" type="application/json">%%DATA_JSON%%</script>
+<script src="%%JS%%" defer></script>
+</body>
+</html>

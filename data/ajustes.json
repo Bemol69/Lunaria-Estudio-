@@ -1,0 +1,90 @@
+{
+  "contacto": {
+    "whatsapp": "56911112222",
+    "mensaje_defecto": "Hola Naayú! Quiero agendar una hora en Lunaria 🌙",
+    "instagram": "lunariaestudio.cl",
+    "correo": ""
+  },
+  "ubicacion": {
+    "direccion": "Metro Villa Frei, Ñuñoa, Santiago",
+    "comuna": "Ñuñoa",
+    "ciudad": "Santiago",
+    "region": "Región Metropolitana",
+    "referencia": "A 8 minutos caminando del Metro Villa Frei (Línea 3)"
+  },
+  "portada": {
+    "titulo": "Tu momento de regaloneo",
+    "bajada": "Uñas y cuidado personal con atención 100% personalizada, una a una. Estudio en Ñuñoa, a pasos del Metro Villa Frei.",
+    "lema": "Uñas · Cosmetología"
+  },
+  "reservas": {
+    "activas": true,
+    "duracion_bloque_min": 60,
+    "anticipacion_horas": 2,
+    "dias_adelante": 30
+  },
+  "horario": [
+    {
+      "dia": "lunes",
+      "cerrado": false,
+      "abre": "10:00",
+      "cierra": "19:00",
+      "pausa_desde": "",
+      "pausa_hasta": ""
+    },
+    {
+      "dia": "martes",
+      "cerrado": false,
+      "abre": "10:00",
+      "cierra": "19:00",
+      "pausa_desde": "",
+      "pausa_hasta": ""
+    },
+    {
+      "dia": "miércoles",
+      "cerrado": false,
+      "abre": "10:00",
+      "cierra": "19:00",
+      "pausa_desde": "",
+      "pausa_hasta": ""
+    },
+    {
+      "dia": "jueves",
+      "cerrado": false,
+      "abre": "10:00",
+      "cierra": "19:00",
+      "pausa_desde": "",
+      "pausa_hasta": ""
+    },
+    {
+      "dia": "viernes",
+      "cerrado": false,
+      "abre": "10:00",
+      "cierra": "19:00",
+      "pausa_desde": "",
+      "pausa_hasta": ""
+    },
+    {
+      "dia": "sábado",
+      "cerrado": false,
+      "abre": "10:00",
+      "cierra": "19:00",
+      "pausa_desde": "",
+      "pausa_hasta": ""
+    },
+    {
+      "dia": "domingo",
+      "cerrado": true,
+      "abre": "10:00",
+      "cierra": "19:00",
+      "pausa_desde": "",
+      "pausa_hasta": ""
+    }
+  ],
+  "pagos": [
+    "Transferencia",
+    "Débito",
+    "Crédito",
+    "Efectivo"
+  ]
+}

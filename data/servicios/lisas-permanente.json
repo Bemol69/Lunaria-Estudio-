@@ -1,0 +1,18 @@
+{
+  "id": "lisas-permanente",
+  "nombre": "Esmaltado permanente · Lisas",
+  "categoria": "Esmaltado permanente",
+  "precio": 18500,
+  "descripcion": "Esmaltado permanente en un solo color, con preparación y acabado prolijo. Dura semanas con brillo de espejo.",
+  "portada": "servicios/lisas-permanente.jpg",
+  "fotos": [
+    "servicios/x-lunares.jpg"
+  ],
+  "etiqueta": "",
+  "origen": "Lista de precios (historia destacada \"Precios\"); foto: post Db6O5boT0g7",
+  "duracion_min": 60,
+  "orden": 1,
+  "visible": true,
+  "destacado": false,
+  "precio_prefijo": ""
+}

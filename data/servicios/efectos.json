@@ -1,0 +1,16 @@
+{
+  "id": "efectos",
+  "nombre": "Efectos: Perlado, Aurora u Ojo de gato",
+  "categoria": "Extras",
+  "precio": 2000,
+  "precio_prefijo": "+",
+  "descripcion": "Suma un efecto especial a cualquier servicio: perlado, aurora u ojo de gato. Se agrega al valor del servicio elegido.",
+  "portada": "servicios/efectos.jpg",
+  "fotos": [],
+  "etiqueta": "",
+  "origen": "Lista de precios; foto: post DccISjLT4fp",
+  "duracion_min": 60,
+  "orden": 5,
+  "visible": true,
+  "destacado": false
+}

@@ -1,0 +1,18 @@
+{
+  "id": "permanente-1-4-disenos",
+  "nombre": "Esmaltado permanente + diseños",
+  "categoria": "Esmaltado permanente",
+  "precio": 20990,
+  "precio_prefijo": "desde",
+  "descripcion": "Tu esmaltado con 1 a 4 uñas diseñadas: puntitos, líneas, animal print, lo que quieras. Desde $20.990 con 1 diseño hasta $23.990 con 4.",
+  "portada": "servicios/permanente-1-4-disenos.jpg",
+  "fotos": [
+    "servicios/x-animal.jpg"
+  ],
+  "etiqueta": "",
+  "origen": "Lista de precios; foto: post Dd8_TrfzXLB",
+  "duracion_min": 60,
+  "orden": 2,
+  "visible": true,
+  "destacado": false
+}

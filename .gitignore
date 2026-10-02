@@ -1,0 +1,8 @@
+.data/
+node_modules/
+dist/
+material-cliente/
+.env
+.env.local
+.vercel
+api/_config.json

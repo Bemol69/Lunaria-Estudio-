@@ -1,0 +1,16 @@
+{
+  "id": "permanente-full-diseno",
+  "nombre": "Esmaltado permanente · Full diseño",
+  "categoria": "Esmaltado permanente",
+  "precio": 24990,
+  "descripcion": "Las diez uñas con diseño, un set completo hecho a mano. Diseños complejos o mano alzada pueden tener un valor adicional.",
+  "portada": "servicios/permanente-full-diseno.jpg",
+  "fotos": [],
+  "etiqueta": "Más pedido",
+  "destacado": true,
+  "origen": "Lista de precios; foto: post DdgzKpIzlDc",
+  "duracion_min": 60,
+  "orden": 3,
+  "visible": true,
+  "precio_prefijo": ""
+}

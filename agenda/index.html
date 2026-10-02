@@ -1,0 +1,253 @@
+<!doctype html>
+<html lang="es-CL">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Agenda · Lunaria Estudio</title>
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--crema:#F4EEE7;--luz:#FFFBF6;--arena:#E9DDCF;--taupe:#A58E7C;--noche:#2B1F2E;--lila:#CDB8DA;--ok:#2f9e5b;--rojo:#b5413a;--linea:rgba(43,31,46,.16);--serif:'Cormorant Garamond',serif;--sans:'Jost',system-ui,sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--crema);color:var(--noche);font:400 1rem/1.5 var(--sans);min-height:100vh}
+button,input,select,textarea{font:inherit;color:inherit}
+h1,h2,h3{font-family:var(--serif);font-weight:600;line-height:1.1}
+.top{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:.8rem 1rem;background:var(--noche);color:var(--luz)}
+.top h1{font-size:1.5rem;letter-spacing:.08em;text-transform:uppercase}
+.top h1 small{display:block;font:500 .6rem var(--sans);letter-spacing:.35em;color:var(--lila)}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:.6rem 1.2rem;border-radius:999px;border:1px solid var(--noche);background:var(--noche);color:var(--luz);cursor:pointer;font-weight:500;text-decoration:none;font-size:.9rem}
+.btn--ghost{background:transparent;color:var(--noche)}
+.top .btn--ghost{color:var(--luz);border-color:rgba(255,251,246,.4)}
+.btn--sm{min-height:36px;padding:.35rem .9rem;font-size:.82rem}
+.btn--rojo{background:var(--rojo);border-color:var(--rojo)}
+.wrap{max-width:1000px;margin:0 auto;padding:1.2rem 1rem 4rem}
+#login{max-width:380px;margin:12vh auto;padding:2rem;background:var(--luz);border-radius:20px;border:1px solid var(--linea);display:grid;gap:1rem}
+#login h2{font-size:2rem}
+input,select,textarea{width:100%;min-height:46px;padding:.65rem .9rem;border-radius:12px;border:1px solid var(--linea);background:var(--crema)}
+label{display:grid;gap:.3rem;font-size:.85rem}
+.err{color:var(--rojo);font-size:.9rem;min-height:1.2em}
+.nav{display:flex;flex-wrap:wrap;align-items:center;gap:.5rem;margin-bottom:1.2rem}
+.nav h2{flex:1;min-width:200px;font-size:1.9rem}.nav h2::first-letter{text-transform:uppercase}.hora,.f{font-variant-numeric:lining-nums}
+.nav input[type=date]{width:auto}
+.resumen{display:flex;gap:.6rem;flex-wrap:wrap;margin-bottom:1rem}
+.chip{padding:.35rem .9rem;border-radius:999px;background:var(--luz);border:1px solid var(--linea);font-size:.85rem}
+.slots{display:grid;gap:.5rem}
+.slot{display:grid;grid-template-columns:62px 1fr auto;gap:.8rem;align-items:center;padding:.7rem .9rem;background:var(--luz);border:1px solid var(--linea);border-radius:14px}
+.slot--libre{background:transparent;border-style:dashed}
+.slot--res{border-left:5px solid var(--ok)}
+.slot--web{border-left-color:#7b5ea7}
+.slot--bloq{border-left:5px solid var(--taupe);background:var(--arena)}
+.slot--cont{background:var(--arena);opacity:.6;border-style:solid}
+.hora{font:600 1.3rem var(--serif)}
+.slot b{font-weight:600}
+.slot small{display:block;color:#6E6068}
+.slot a{color:inherit}
+.badge{display:inline-block;margin-left:.4rem;padding:.05rem .5rem;border-radius:999px;font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;background:var(--noche);color:var(--luz);vertical-align:middle}
+.badge--web{background:#7b5ea7}
+.vacio{padding:1.5rem;text-align:center;color:#6E6068;background:var(--luz);border-radius:14px}
+h3.sub{font-size:1.6rem;margin:2.2rem 0 .8rem}
+.prox{display:grid;gap:.5rem}
+.prox button{all:unset;cursor:pointer;display:grid;grid-template-columns:auto 1fr;gap:.2rem .9rem;padding:.7rem .9rem;background:var(--luz);border:1px solid var(--linea);border-radius:14px}
+.prox button:hover{border-color:var(--noche)}
+.prox .f{font:600 1.1rem var(--serif);text-transform:capitalize}
+dialog{border:0;border-radius:20px;padding:1.5rem;width:min(92vw,440px);background:var(--luz);color:var(--noche);margin:auto}
+dialog::backdrop{background:rgba(43,31,46,.65)}
+dialog form{display:grid;gap:.9rem}
+dialog h3{font-size:1.8rem}
+.fila{display:flex;gap:.6rem;justify-content:flex-end;flex-wrap:wrap}
+[hidden]{display:none!important}
+.aviso{margin-top:1.6rem;padding:1rem;border-radius:14px;background:var(--arena);font-size:.88rem}
+</style>
+</head>
+<body>
+<div id="login">
+  <h2>Agenda Lunaria</h2>
+  <p>Ingresa la clave del panel para ver y agendar horas.</p>
+  <form id="fLogin" style="display:grid;gap:.8rem">
+    <label>Clave<input type="password" id="pw" autocomplete="current-password" required></label>
+    <p class="err" id="eLogin" role="alert"></p>
+    <button class="btn" type="submit">Entrar</button>
+  </form>
+</div>
+
+<div id="app" hidden>
+  <header class="top">
+    <h1>Lunaria<small>Agenda</small></h1>
+    <div style="display:flex;gap:.5rem"><a class="btn btn--sm btn--ghost" href="/admin/">Editar sitio</a><button class="btn btn--sm btn--ghost" id="salir">Salir</button></div>
+  </header>
+  <div class="wrap">
+    <div class="nav">
+      <h2 id="tit"></h2>
+      <button class="btn btn--sm btn--ghost" id="ant" aria-label="Día anterior">‹</button>
+      <button class="btn btn--sm btn--ghost" id="hoy">Hoy</button>
+      <button class="btn btn--sm btn--ghost" id="sig" aria-label="Día siguiente">›</button>
+      <input type="date" id="fecha" aria-label="Elegir fecha">
+    </div>
+    <div class="resumen" id="resumen"></div>
+    <div class="slots" id="slots"></div>
+    <h3 class="sub">Próximas reservas</h3>
+    <div class="prox" id="prox"></div>
+    <p class="aviso">Las horas que agendas aquí se ocultan al instante en la página pública. Si cancelas una reserva, la hora vuelve a quedar disponible.</p>
+  </div>
+</div>
+
+<dialog id="dNueva">
+  <form id="fNueva" method="dialog">
+    <h3 id="nTit">Agendar hora</h3>
+    <p id="nCuando"></p>
+    <label>Tipo<select id="nServ"></select></label>
+    <label id="lDur" hidden>Duración (min)<input type="number" id="nDur" min="60" step="60" value="60"></label>
+    <label id="lNom">Nombre<input id="nNom" maxlength="60"></label>
+    <label id="lTel">Celular <small>(opcional)</small><input id="nTel" inputmode="tel" placeholder="9 1234 5678"></label>
+    <label>Nota <small>(opcional)</small><textarea id="nNota" rows="2" maxlength="300"></textarea></label>
+    <p class="err" id="nErr" role="alert"></p>
+    <div class="fila"><button class="btn btn--ghost" type="button" id="nCancel">Cerrar</button><button class="btn" type="submit" id="nOk">Guardar</button></div>
+  </form>
+</dialog>
+
+<dialog id="dDet">
+  <h3 id="dTit"></h3>
+  <p id="dCuerpo" style="margin:.8rem 0 1.2rem"></p>
+  <div class="fila"><button class="btn btn--ghost" id="dCerrar">Cerrar</button><button class="btn btn--rojo" id="dCancelar">Cancelar reserva</button></div>
+</dialog>
+
+<script>
+(() => {
+  const $ = s => document.querySelector(s);
+  const LS = 'lunaria-agenda-token';
+  let token = '', DATA = { reservas: [], servicios: [], horario: [], bloque: 60 }, fecha = '', slotSel = null;
+  const DIAS = ['lunes','martes','miércoles','jueves','viernes','sábado','domingo'];
+
+  const hoyChile = () => new Intl.DateTimeFormat('en-CA', { timeZone: 'America/Santiago' }).format(new Date());
+  const suma = (f, n) => { const d = new Date(f + 'T12:00:00Z'); d.setUTCDate(d.getUTCDate() + n); return d.toISOString().slice(0, 10); };
+  const fmt = (f, o) => new Intl.DateTimeFormat('es-CL', { timeZone: 'UTC', ...o }).format(new Date(f + 'T12:00:00Z'));
+  const aMin = h => { const [a, b] = h.split(':').map(Number); return a * 60 + b; };
+  const aHora = m => String(Math.floor(m / 60)).padStart(2, '0') + ':' + String(m % 60).padStart(2, '0');
+  const esc = s => String(s ?? '').replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+
+  async function api(path, opt = {}) {
+    const r = await fetch(path, { ...opt, headers: { 'Content-Type': 'application/json', Authorization: 'Bearer ' + token } });
+    const j = await r.json().catch(() => ({}));
+    if (r.status === 401 && path.includes('reservas')) { salir(); throw new Error('Sesión vencida'); }
+    return { status: r.status, ...j };
+  }
+  function salir() { token = ''; try { localStorage.removeItem(LS); } catch {} $('#app').hidden = true; $('#login').hidden = false; }
+
+  $('#fLogin').addEventListener('submit', async e => {
+    e.preventDefault(); $('#eLogin').textContent = '';
+    const r = await fetch('/api/admin/login', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ password: $('#pw').value }) });
+    const j = await r.json().catch(() => ({}));
+    if (!j.ok) { $('#eLogin').textContent = j.error || 'No se pudo ingresar.'; return; }
+    token = j.token; try { localStorage.setItem(LS, token); } catch {}
+    iniciar();
+  });
+  $('#salir').addEventListener('click', salir);
+
+  async function iniciar() {
+    $('#login').hidden = true; $('#app').hidden = false;
+    fecha = hoyChile();
+    await cargar();
+  }
+  async function cargar() {
+    const r = await api(`/api/admin/reservas?desde=${suma(hoyChile(), -1)}&hasta=${suma(hoyChile(), 120)}`);
+    if (!r.ok) return;
+    DATA = r; pintar();
+  }
+
+  function diaCfg(f) {
+    const d = new Date(f + 'T12:00:00Z'); return DATA.horario.find(h => h.dia === DIAS[(d.getUTCDay() + 6) % 7]);
+  }
+  const activas = () => DATA.reservas.filter(r => r.estado !== 'cancelada');
+
+  function pintar() {
+    $('#tit').textContent = fmt(fecha, { weekday: 'long', day: 'numeric', month: 'long' });
+    $('#fecha').value = fecha;
+    const rs = activas().filter(r => r.fecha === fecha);
+    $('#resumen').innerHTML = `<span class="chip">${rs.filter(r => r.tipo !== 'bloqueo').length} reservas este día</span><span class="chip">${activas().filter(r => r.fecha >= hoyChile() && r.tipo !== 'bloqueo').length} próximas en total</span>`;
+
+    const h = diaCfg(fecha), cont = $('#slots');
+    if (!h || h.cerrado) { cont.innerHTML = '<p class="vacio">Día sin atención según el horario. Puedes cambiarlo en “Editar sitio” → Ajustes.</p>'; }
+    else {
+      const paso = DATA.bloque, abre = aMin(h.abre), cierra = aMin(h.cierra);
+      const pd = h.pausa_desde && h.pausa_hasta ? [aMin(h.pausa_desde), aMin(h.pausa_hasta)] : null;
+      let html = '';
+      const cubiertos = {};
+      rs.forEach(r => { const i = aMin(r.hora); for (let k = 0; k < Math.max(1, Math.ceil(r.duracion_min / paso)); k++) cubiertos[i + k * paso] = k ? 'cont' : r; });
+      for (let m = abre; m < cierra; m += paso) {
+        if (pd && m >= pd[0] && m < pd[1]) continue;
+        const hh = aHora(m), c = cubiertos[m];
+        if (c === 'cont') html += `<div class="slot slot--cont"><span class="hora">${hh}</span><span>↳ continúa la reserva anterior</span><span></span></div>`;
+        else if (c) {
+          const bloq = c.tipo === 'bloqueo';
+          html += `<div class="slot ${bloq ? 'slot--bloq' : 'slot--res'} ${c.tipo === 'web' ? 'slot--web' : ''}"><span class="hora">${hh}</span>
+            <div><b>${esc(c.nombre)}</b>${bloq ? '' : `<span class="badge ${c.tipo === 'web' ? 'badge--web' : ''}">${c.tipo === 'web' ? 'Web' : 'Admin'}</span>`}
+            <small>${bloq ? 'Hora bloqueada' : esc(c.servicio_nombre)}${c.telefono ? ` · <a href="https://api.whatsapp.com/send?phone=${c.telefono}" target="_blank" rel="noopener">+${c.telefono}</a>` : ''}${c.nota ? ` · “${esc(c.nota)}”` : ''}</small></div>
+            <button class="btn btn--sm btn--ghost" data-det="${c.id}">Ver</button></div>`;
+        } else html += `<div class="slot slot--libre"><span class="hora">${hh}</span><span style="color:#6E6068">Libre</span><button class="btn btn--sm" data-nueva="${hh}">Agendar</button></div>`;
+      }
+      cont.innerHTML = html;
+    }
+    const prox = activas().filter(r => r.fecha >= hoyChile() && r.tipo !== 'bloqueo');
+    $('#prox').innerHTML = prox.length ? prox.slice(0, 40).map(r => `<button data-ir="${r.fecha}"><span class="f">${fmt(r.fecha, { weekday: 'short', day: 'numeric', month: 'short' })} · ${r.hora}</span><span>${esc(r.nombre)} — ${esc(r.servicio_nombre)}</span></button>`).join('') : '<p class="vacio">Aún no hay reservas.</p>';
+  }
+
+  document.addEventListener('click', e => {
+    const t = e.target.closest('button'); if (!t) return;
+    if (t.dataset.nueva) abrirNueva(t.dataset.nueva);
+    if (t.dataset.det) abrirDet(t.dataset.det);
+    if (t.dataset.ir) { fecha = t.dataset.ir; pintar(); scrollTo({ top: 0, behavior: 'smooth' }); }
+  });
+  $('#ant').onclick = () => { fecha = suma(fecha, -1); pintar(); };
+  $('#sig').onclick = () => { fecha = suma(fecha, 1); pintar(); };
+  $('#hoy').onclick = () => { fecha = hoyChile(); pintar(); };
+  $('#fecha').onchange = e => { if (e.target.value) { fecha = e.target.value; pintar(); } };
+
+  function abrirNueva(hora) {
+    slotSel = hora;
+    $('#nCuando').textContent = `${fmt(fecha, { weekday: 'long', day: 'numeric', month: 'long' })} · ${hora} h`;
+    $('#nServ').innerHTML = DATA.servicios.map(s => `<option value="${esc(s.id)}">${esc(s.nombre)}</option>`).join('') + '<option value="__bloqueo">⛔ Bloquear esta hora (no atiendo)</option>';
+    ['#nNom', '#nTel', '#nNota'].forEach(q => $(q).value = ''); $('#nErr').textContent = ''; cambioTipo();
+    $('#dNueva').showModal();
+  }
+  function cambioTipo() { const b = $('#nServ').value === '__bloqueo'; $('#lDur').hidden = !b; $('#lNom').hidden = b; $('#lTel').hidden = b; }
+  $('#nServ').onchange = cambioTipo;
+  $('#nCancel').onclick = () => $('#dNueva').close();
+  $('#fNueva').addEventListener('submit', async e => {
+    e.preventDefault();
+    const bloq = $('#nServ').value === '__bloqueo', btn = $('#nOk');
+    if (!bloq && $('#nNom').value.trim().length < 2) { $('#nErr').textContent = 'Escribe el nombre de la clienta.'; return; }
+    btn.disabled = true;
+    const body = bloq ? { tipo: 'bloqueo', fecha, hora: slotSel, duracion_min: +$('#nDur').value || DATA.bloque, nota: $('#nNota').value, nombre: 'Bloqueado' }
+      : { servicio_id: $('#nServ').value, fecha, hora: slotSel, nombre: $('#nNom').value, telefono: $('#nTel').value, nota: $('#nNota').value };
+    const r = await api('/api/admin/reservas', { method: 'POST', body: JSON.stringify(body) });
+    btn.disabled = false;
+    if (!r.ok) { $('#nErr').textContent = r.error || 'No se pudo guardar.'; return; }
+    $('#dNueva').close(); await cargar();
+  });
+
+  let detId = null;
+  function abrirDet(id) {
+    const r = DATA.reservas.find(x => x.id === id); if (!r) return; detId = id;
+    const bloq = r.tipo === 'bloqueo';
+    $('#dTit').textContent = bloq ? 'Hora bloqueada' : r.nombre;
+    $('#dCuerpo').innerHTML = `${fmt(r.fecha, { weekday: 'long', day: 'numeric', month: 'long' })} · ${r.hora} h<br>${bloq ? '' : esc(r.servicio_nombre) + '<br>'}${r.telefono ? `+${r.telefono}<br>` : ''}${r.nota ? '“' + esc(r.nota) + '”<br>' : ''}<small>${r.tipo === 'web' ? 'Reservada por la clienta en la web' : 'Agendada desde el panel'}</small>`;
+    $('#dCancelar').textContent = bloq ? 'Quitar bloqueo' : 'Cancelar reserva';
+    $('#dDet').showModal();
+  }
+  $('#dCerrar').onclick = () => $('#dDet').close();
+  $('#dCancelar').onclick = async () => {
+    if (!confirm('¿Seguro? La hora volverá a quedar disponible en la página.')) return;
+    await api('/api/admin/reservas?id=' + detId, { method: 'DELETE' });
+    $('#dDet').close(); await cargar();
+  };
+
+  try { token = localStorage.getItem(LS) || ''; } catch {}
+  if (token) iniciar().catch(() => {});
+  setInterval(() => { if (token && !$('#app').hidden) cargar().catch(() => {}); }, 60000);
+})();
+</script>
+</body>
+</html>

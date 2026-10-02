@@ -1,0 +1,19 @@
+{
+  "id": "permanente-francesa",
+  "nombre": "Francesa o Degradé",
+  "categoria": "Esmaltado permanente",
+  "precio": 21990,
+  "descripcion": "Francesas clásicas, de colores o con carey; también degradé. Un infaltable que siempre se ve elegante.",
+  "portada": "servicios/permanente-francesa.jpg",
+  "fotos": [
+    "servicios/x-carey.jpg",
+    "servicios/x-francesas.jpg"
+  ],
+  "etiqueta": "",
+  "origen": "Lista de precios; foto: post DcjC0Pele1R",
+  "duracion_min": 60,
+  "orden": 4,
+  "visible": true,
+  "destacado": false,
+  "precio_prefijo": ""
+}

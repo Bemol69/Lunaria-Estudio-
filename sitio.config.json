@@ -1,0 +1,16 @@
+{
+  "nombre": "Lunaria Estudio",
+  "nombre_corto": "Lunaria",
+  "rubro": "Manicure, uñas polygel y cosmetología",
+  "schema_tipo": "BeautySalon",
+  "dominio": "https://lunariaestudio.vercel.app",
+  "repo": "Bemol69/lunariaestudio.cl",
+  "seo": {
+    "titulo": "Lunaria Estudio · Uñas y cosmetología en Ñuñoa, Metro Villa Frei",
+    "descripcion": "Esmaltado permanente, extensión polygel y limpiezas faciales en Ñuñoa. Atención personalizada a pasos del Metro Villa Frei. Reserva tu hora online.",
+    "imagen": "servicios/hero.jpg"
+  },
+  "colores": {
+    "tema": "#2B1F2E"
+  }
+}

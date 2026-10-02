@@ -1,0 +1,1 @@
+{"name":"lunariaestudio-cl","private":true,"type":"module","scripts":{"build":"node scripts/build.mjs","dev":"node scripts/dev.mjs"},"engines":{"node":">=18"},"dependencies":{"sharp":"^0.34.4"}}

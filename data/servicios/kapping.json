@@ -1,0 +1,16 @@
+{
+  "id": "kapping",
+  "nombre": "Kapping / nivelación",
+  "categoria": "Extras",
+  "precio": 4000,
+  "precio_prefijo": "+",
+  "descripcion": "Refuerzo y nivelación de la uña natural: +$4.000 en hard gel y +$7.000 en polygel.",
+  "portada": "servicios/kapping.jpg",
+  "fotos": [],
+  "etiqueta": "",
+  "origen": "Lista de precios; foto: post DcWa0FSzm0X",
+  "duracion_min": 60,
+  "orden": 9,
+  "visible": true,
+  "destacado": false
+}
