@@ -1,4 +1,4 @@
-import { config, ahoraChile, sumaDias, reservasActivas, ocupadoSet, libres, inicios, servicioPorId, json } from './_lib/core.js';
+import { usaRedis, config, ahoraChile, sumaDias, reservasActivas, ocupadoSet, libres, inicios, servicioPorId, json } from './_lib/core.js';
 
 // GET /api/disponibilidad?servicio=<id>  -> horas libres por día (sin datos personales)
 export default async function handler(req, res) {
@@ -14,7 +14,7 @@ export default async function handler(req, res) {
       const total = inicios(cfg, f, serv.duracion_min).length;
       dias[f] = { total, libres: total ? libres(cfg, f, serv.duracion_min, ocupado, ahora) : [] };
     }
-    json(res, 200, { ok: true, activas: cfg.reservas.activas, hoy: ahora.fecha, dias });
+    json(res, 200, { ok: true, almacen: usaRedis ? 'redis' : (process.env.VERCEL ? 'SIN_BASE_DE_DATOS' : 'local'), activas: cfg.reservas.activas, hoy: ahora.fecha, dias });
   } catch (e) {
     console.error(e); json(res, 500, { ok: false, error: 'No pudimos cargar la disponibilidad.' });
   }
