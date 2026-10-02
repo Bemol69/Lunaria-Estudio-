@@ -3,7 +3,7 @@
 
 backend:
   name: github
-  repo: Bemol69/lunariaestudio.cl
+  repo: Bemol69/Lunaria-Estudio-
   branch: main
   commit_messages:
     create: "Web: crea {{collection}} «{{slug}}»"
